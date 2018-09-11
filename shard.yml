@@ -1,0 +1,9 @@
+name: cryloc
+version: 0.1.0
+
+authors:
+  - Thog <me@thog.eu>
+
+crystal: 0.26.1+34
+
+license: MIT
