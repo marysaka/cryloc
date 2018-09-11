@@ -2,7 +2,7 @@
 
 A platform independent memory allocator in Crystal.
 
-For now the implementation, is based on a free list but more implementations will come in the future.
+For now, the implementation is based on a free list but more implementations will come in the future.
 
 ## Demo
 
