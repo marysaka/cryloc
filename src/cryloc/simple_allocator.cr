@@ -97,7 +97,7 @@ struct Cryloc::SimpleAllocator
     # align and ask more size if needed
     aligned_size = cryloc_align(size, PTR_SIZE)
     if aligned_size != size
-      ptr = LibC.sbrk(aligned_size)
+      ptr = sbrk(aligned_size)
       if (ptr.address == SBRK_ERROR_CODE)
         return Pointer(Void).new(0)
       end
