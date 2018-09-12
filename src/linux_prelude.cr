@@ -35,7 +35,7 @@ struct Cryloc::Lock
     @@need_init == 0
   end
 
-  def self.init_lock
+  def self.init
     if LibC.pthread_mutex_init(pointerof(@@mutex), nil) != 0
       LibC.abort
     end

@@ -70,14 +70,14 @@ struct Cryloc::SimpleAllocator
 
   private def self.lock
     if !Lock.init?
-      Lock.init_lock
+      Lock.init
     end
     Lock.enter
   end
 
   private def self.unlock
     if !Lock.init?
-      Lock.init_lock
+      Lock.init
     end
     Lock.leave
   end
