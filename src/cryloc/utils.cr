@@ -1,22 +1,21 @@
 {% if flag?(:bits64) %}
-alias SizeT = UInt64
-alias SSizeT = Int64
+  alias SizeT = UInt64
+  alias SSizeT = Int64
 
-struct Int
-  def to_ssize
-    self.to_u64
+  struct Int
+    def to_ssize
+      self.to_u64
+    end
   end
-end
 {% else %}
-alias SizeT = UInt32
-alias SSizeT = Int32
+  alias SizeT = UInt32
+  alias SSizeT = Int32
 
-struct Int
-  def to_ssize
-    self.to_u32
+  struct Int
+    def to_ssize
+      self.to_u32
+    end
   end
-end
-
 {% end %}
 
 lib LibC

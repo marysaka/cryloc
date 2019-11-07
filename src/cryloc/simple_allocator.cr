@@ -1,18 +1,18 @@
 {% if !flag?(:cryloc_lock) %}
-struct Cryloc::Lock
-  def self.init?
-    0i32
-  end
+  struct Cryloc::Lock
+    def self.init?
+      0i32
+    end
 
-  def self.init
-  end
+    def self.init
+    end
 
-  def self.enter
-  end
+    def self.enter
+    end
 
-  def self.leave
+    def self.leave
+    end
   end
-end
 {% end %}
 
 # A Simple allocator using a linked free list
@@ -27,9 +27,9 @@ struct Cryloc::SimpleAllocator
   MAX_ALLOC_SIZE      = 0x80000000
 
   {% if flag?(:bits64) %}
-  SBRK_ERROR_CODE = 0xFFFFFFFFFFFFFFFF
+    SBRK_ERROR_CODE = 0xFFFFFFFFFFFFFFFF
   {% else %}
-  SBRK_ERROR_CODE = 0xFFFFFFFF
+    SBRK_ERROR_CODE = 0xFFFFFFFF
   {% end %}
 
   @@heap_start : Void* = Pointer(Void).new(0)
