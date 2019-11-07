@@ -4,7 +4,7 @@ fun calloc(nmeb : SizeT, size : SizeT) : Void*
   # puts("CALLOC")
   res = malloc(nmeb * size)
   if res.address != 0
-    cryloc_memset(res.as(UInt8*), 0, nmeb * size)
+    cryloc_memset(res.as(UInt8*), 0, (nmeb * size).to_u64)
   end
   res
 end

@@ -27,9 +27,9 @@ struct Cryloc::SimpleAllocator
   MAX_ALLOC_SIZE      = 0x80000000
 
   {% if flag?(:bits64) %}
-    SBRK_ERROR_CODE = 0xFFFFFFFFFFFFFFFF
+    SBRK_ERROR_CODE = 0xFFFFFFFFFFFFFFFF_u64
   {% else %}
-    SBRK_ERROR_CODE = 0xFFFFFFFF
+    SBRK_ERROR_CODE = 0xFFFFFFFF_u64
   {% end %}
 
   @@heap_start : Void* = Pointer(Void).new(0)
@@ -278,7 +278,7 @@ struct Cryloc::SimpleAllocator
 
     # prepare a size that may be bigger than the one asked, but we will truncate that after.
     memory_align_size = cryloc_align(cryloc_max(size, MIN_ALLOC_SIZE), CHUNK_SIZE)
-    padded_size = (memory_align_size + alignment - PADDING).to_u64
+    padded_size = (memory_align_size + alignment - PADDING).to_ssize
 
     ptr = allocate(padded_size)
     if (ptr.address == 0)
